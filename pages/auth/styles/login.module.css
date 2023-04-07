@@ -1,0 +1,13 @@
+/* pages/auth/styles/login.module.css */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
