@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import styles from './styles/register.module.css';
 import { authInstance } from '../../firebaseConfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-
+import Link from 'next/link';
 
 const Register = () => {
   const [email, setEmail] = useState('');
@@ -68,6 +68,12 @@ const Register = () => {
           <button className={styles.button} type="submit">
             Register
           </button>
+          <p className={styles.linkText}>
+            Already have an account?{' '}
+            <Link legacyBehavior href="/login">
+              <a className={styles.link}>Login</a>
+            </Link>
+          </p>
         </form>
       </div>
     </div>

@@ -4,6 +4,7 @@ import styles from './styles/login.module.css';
 import { authInstance } from '../../firebaseConfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -48,7 +49,14 @@ const Login = () => {
 
           <button className={styles.button} type="submit">
             Login
-          </button>
+            </button>
+          <p className={styles.linkText}>
+            Don't have an account?{' '}
+            <Link legacyBehavior href="register">
+              <a className={styles.link}>Sign up</a>
+            </Link>
+          </p>
+          
         </form>
       </div>
     </div>
