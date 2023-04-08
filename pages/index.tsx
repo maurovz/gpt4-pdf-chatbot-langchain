@@ -14,11 +14,39 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 
-export default function Home() {
+// pages/index.tsx
+import React from 'react';
+import { useRouter } from 'next/router';
+import { useAuth } from '../contexts/AuthContext';
+
+const IndexPage = () => {
+  const { user, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      router.push('/auth/login');
+    }
+  }, [user, loading, router]);
+
+  if (loading || !user) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div>
+      { <Home></Home> }
+    </div>
+  );
+};
+
+export default IndexPage;
+
+export function Home() {
   const [query, setQuery] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
   const [sourceDocs, setSourceDocs] = useState<Document[]>([]);
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);  
   const [messageState, setMessageState] = useState<{
     messages: Message[];
     pending?: string;

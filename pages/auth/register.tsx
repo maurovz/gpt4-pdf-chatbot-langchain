@@ -1,7 +1,7 @@
 // pages/auth/register.tsx
 import React, { useState } from 'react';
 import styles from './styles/register.module.css';
-import { auth } from '../../firebaseConfig';
+import { authInstance } from '../../firebaseConfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 
 
@@ -14,7 +14,7 @@ const Register = () => {
     e.preventDefault();
     if (password === confirmPassword) {
       try {
-        await createUserWithEmailAndPassword(auth, email, password);
+        await createUserWithEmailAndPassword(authInstance, email, password); 
         // Redirect the user to the login page or a protected route after successful registration
       } catch (error: any) {
         alert(error.message);

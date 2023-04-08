@@ -1,5 +1,7 @@
+// _app.tsx
 import '@/styles/base.css';
 import type { AppProps } from 'next/app';
+import { AuthProvider } from '../contexts/AuthContext';
 import { Inter } from 'next/font/google';
 
 const inter = Inter({
@@ -9,12 +11,9 @@ const inter = Inter({
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
-      <main className={inter.variable}>
-        <Component {...pageProps} />
-      </main>
-    </>
+    <AuthProvider>
+      <Component {...pageProps} />
+    </AuthProvider>
   );
 }
-
 export default MyApp;

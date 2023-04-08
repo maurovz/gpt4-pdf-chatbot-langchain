@@ -1,19 +1,21 @@
 // pages/auth/login.tsx
 import React, { useState } from 'react';
 import styles from './styles/login.module.css';
-import { auth } from '../../firebaseConfig';
+import { authInstance } from '../../firebaseConfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
-
+import { useRouter } from 'next/router';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(authInstance, email, password);
       // Redirect the user to the homepage or a protected route after successful login
+      router.push('/');
     } catch (error: any) {
       alert(error.message);
     }
