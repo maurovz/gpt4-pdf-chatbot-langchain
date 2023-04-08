@@ -26,39 +26,53 @@ const Register = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit} className={styles.form}>
-        <label htmlFor="email">Email:</label>
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-
-        <label htmlFor="confirmPassword">Confirm Password:</label>
-        <input
-          type="password"
-          id="confirmPassword"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-        />
-
-        <button type="submit">Register</button>
-      </form>
+      <div className={styles.box}>
+        <h1>Register</h1>
+        <form onSubmit={handleSubmit} className={styles.form}>
+          <label htmlFor="email" className={styles.label}>
+            Email:
+          </label>
+          <input
+            className={styles.input}
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+  
+          <label htmlFor="password" className={styles.label}>
+            Password:
+          </label>
+          <input
+            className={styles.input}
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+  
+          <label htmlFor="confirmPassword" className={styles.label}>
+            Confirm Password:
+          </label>
+          <input
+            className={styles.input}
+            type="password"
+            id="confirmPassword"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+  
+          <button className={styles.button} type="submit">
+            Register
+          </button>
+        </form>
+      </div>
     </div>
   );
+  
 };
 
 export default Register;
